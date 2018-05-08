@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>color ninja</title>
+</head>
+<body>
+	{% if colour== "blue" %}
+	<img src="{{url_for('static', filename='img/leonardo.jpg')}}" alt="Leonardo image here!"/>
+	
+	{% elif colour== "orange" %}
+	<img src="{{url_for('static', filename='img/michelangelo.jpg')}}" alt="michelangelo image here!"/>
+	
+
+	{% elif colour== "red" %}
+	<img src="{{url_for('static', filename='img/raphael.jpg')}}" alt="raphael image here!"/>
+	
+
+	{% elif colour== "purple" %}
+	<img src="{{url_for('static', filename='img/donatello.jpg')}}" alt="donatello image here!"/>
+	
+	{% else %}
+	<img src="{{url_for('static', filename='img/notapril.jpg')}}" alt="notapril.jpg image here!"/>
+
+	{% endif %}
+
+
+</body>
+</html>
