@@ -1,0 +1,28 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#wrapper{
+	width:600px;
+	height:600px;
+	background-color: yellow;
+	margin: 0 auto;
+	padding: 20px;
+
+}
+
+#check.red{
+	width: 200px;
+	height:200px;
+	margin: 20px;
+	background-color: red;
+}
+
+
+#check.green{
+	width: 200px;
+	height:200px;
+	margin: 20px;
+	background-color: green;
+}
