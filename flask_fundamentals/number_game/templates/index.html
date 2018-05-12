@@ -18,6 +18,11 @@
 			{% else %}	
 			<div id="check" class = "green">
 				{{message}}
+				
+					<form action='/reset'>
+						<input type="submit" name="reset" value="Play again">
+					</form>
+				
 			</div>
 			{% endif %}
 		{% endif %}
