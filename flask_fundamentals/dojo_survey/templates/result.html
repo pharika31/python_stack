@@ -7,13 +7,9 @@
 <body>
 	<h2>Submitted Info</h2>
 	
-         {% for key, value in result.iteritems() %}
-         <p>
-            {{ key }} :
-            {{ value }} 
-          </p>  
-         {% endfor %}
-     
+         {%for key,value in result%}
+         <h4>{{key}}: {{value}}  </h4>
+        {%endfor%}
 
 </body>
 </html>
