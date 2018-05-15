@@ -1,0 +1,15 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+
+ul{
+	display: inline;
+}
+.flashes {
+	color: red;
+}
+
+.success{
+	color: green;
+}

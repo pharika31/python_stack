@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration form</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+	 <form action="/success" method="post">
+
+
+	 	<p>
+            <label for="f_name">First Name:</label>
+            <input type="text" id="f_name" name="f_name">
+            {% with messages = get_flashed_messages(category_filter=['f_name']) %}
+			  {% if messages %}
+			    <ul class=flashes>
+			    {% for message in messages %}
+			      <li >{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+			{% endwith %}
+
+        </p>  
+
+        <p>
+            <label for="l_name">Last Name:</label>
+            <input type="text" id="l_name" name="l_name">
+              {% with messages = get_flashed_messages(category_filter=['l_name']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+
+        </p>
+
+        <p>    
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            {% with messages = get_flashed_messages(category_filter=['email']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+        </p>
+
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            {% with messages = get_flashed_messages(category_filter=['password']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+        </p>    
+        <p>
+            <label for="pw_confirm">Password Confirmation:</label>
+            <input type="password" id="pw_confirm" name="pw_confirm">
+            {% with messages = get_flashed_messages(category_filter=['pw_confirm']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+        </p>    
+
+            
+
+            <input type="submit" value="Submit">
+            {% with success = get_flashed_messages(category_filter=["success"]) %}
+            {% if success %}
+            <h3>{{ success }}</h3>
+            {% endif %}
+            {% endwith %}
+
+        </form>
+</body>
+</html>
