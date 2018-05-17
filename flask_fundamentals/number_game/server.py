@@ -5,10 +5,12 @@ app.secret_key ='ThisisaSecret'
 
 @app.route('/')
 def main_page():
-	if session.get('number') is None:	
+	if 'number' not in session:	
 		session['number'] = random.randrange(0, 101)
 	print session['number']
-	return render_template('index.html')
+	if 'message' not in session:	
+		session['message'] = ''
+	return render_template('index.html', message = session['message'], number = session['number'])
 
 @app.route('/guess', methods=['POST'])
 def check_guess():
@@ -22,11 +24,11 @@ def check_guess():
 
 	if user_guess == session['number']:
 		session['message'] = "{}".format(user_guess)+ " was the number"
-	return render_template('index.html', message = session['message'])
+
+	return render_template('index.html', message = session['message'], number = session['number'])
 
 @app.route('/reset', methods=['POST'])
 def reset():
-	
 	session.pop('number')
 	session.pop('message')
 	return redirect('/')

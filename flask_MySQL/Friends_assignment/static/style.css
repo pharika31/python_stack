@@ -1,0 +1,26 @@
+*{
+	margin: 0px;
+	padding-left: 0px;
+}
+
+span{
+	font-size: 22px;
+	color: purple;
+	font-weight: bold;
+	margin-right:100px;
+}
+
+hr{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.result{
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 50px;
+}
+
+p{
+	padding-left: 0px;
+}
