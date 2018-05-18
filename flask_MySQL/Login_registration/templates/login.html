@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login page</title>
+</head>
+<body>
+	<h1>Login and Registration</h1>
+
+	<form method="post" action="/login">
+		<p>
+			{% with messages = get_flashed_messages(category_filter=['fail']) %}
+			  {% if messages %}
+			    <ul class=flashes>
+			    {% for message in messages %}
+			      <li >{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+			{% endwith %}
+
+			<label for='email'>Email:<input type='text' name='email' id='email'></label>
+			{% with messages = get_flashed_messages(category_filter=['email_login']) %}
+			  {% if messages %}
+			    <ul class=flashes>
+			    {% for message in messages %}
+			      <li >{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+			{% endwith %}
+
+		</p>
+        <p>
+        	<label for='password'>Password:<input type='password' name='password' id='password'></label>
+        </p>
+        <p>
+        	<input type='submit' value='Login'>
+        </p>	
+	</form>
+	<h4>Don't have an Account?</h4>
+	<form method="GET" action="/register">
+		<button>Register</button>
+	</form>
+</body>
+</html>

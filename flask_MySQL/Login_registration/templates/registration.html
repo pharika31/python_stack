@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css' )}}">
+</head>
+<body>
+	<form method="post" action="/register">
+		<p>
+			<label for="f_name">First Name: <input type="text" id="f_name" name="f_name" /></label>
+			{% with messages = get_flashed_messages(category_filter=['f_name']) %}
+			  {% if messages %}
+			    <ul class=flashes>
+			    {% for message in messages %}
+			      <li >{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+			{% endwith %}
+		</p>
+		<p>
+			<label for="l_name">Last Name: <input type="text" id="l_name" name="l_name" /></label>
+			{% with messages = get_flashed_messages(category_filter=['l_name']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+		</p>
+		<p>
+			<label for="email">Email: <input type="text" id="email" name="email" /></label>
+			{% with messages = get_flashed_messages(category_filter=['email']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+		</p>
+		<p>
+			<label for="password">Password: <input type="password" id="password" name="password" /></label>
+			{% with messages = get_flashed_messages(category_filter=['password']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+		</p>
+		<p>
+			<label for="pw_confirm">Confirm Password: <input type="password" id="pw_confirm" name="pw_confirm" /></label>
+			{% with messages = get_flashed_messages(category_filter=['pw_confirm']) %}
+				  {% if messages %}
+				    <ul class=flashes>
+				    {% for message in messages %}
+				      <li >{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+		</p>
+		<p>
+			<input type="submit" name="submit" value="Submit">
+		</p>
+	</form>
+</body>
+</html>
