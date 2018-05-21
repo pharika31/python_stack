@@ -1,0 +1,18 @@
+*{
+  margin:  0 auto;
+  padding-left,padding-right: 200px;
+
+}
+
+h1{
+  border: 1px solid black;
+  width: 200px;
+  height:100px;
+  background-color: cyan;
+}
+#main{
+  border: 1px solid black;
+  width: 400px;
+  height:200px;
+  background-color: pink;
+}
