@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration form</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'survey_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+
+  <div id="wrapper">
+    <div id="green">
+      <h3>Thanks for submitting this form! You have submitted this form {{request.session.counter}} times now!!</h3>
+    </div>
+
+    <div id ="main">
+      <h2>Submitted Information</h2>
+      <p>
+        <h4>Name : {{request.session.name}}</h4>
+      </p>
+      <p>
+        <h4>Location : {{request.session.loc}}</h4>
+      </p>
+      <p>
+        <h4>Language : {{request.session.lang}}</h4>
+      </p>
+      <p>
+        <h4>Comment : {{request.session.comment}}</h4>
+      </p>
+      <p>
+        <form action="/" method="post">
+      	{% csrf_token %}
+          <input type="submit" value="Go back">
+
+        </form>
+      </p
+    </div>
+  </div>
+</body>
+</html>

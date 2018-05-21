@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration form</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'survey_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+  
+  <div id="wrapper">
+    <form action="/surveys/process" method="post">
+  	{% csrf_token %}
+    <p>
+				<label for = "name">Your name:
+        		<input id="name" name="name" type="text" />
+        </label>
+    		</p>
+    		<p>
+				<label for = "loc"> Dojo location:
+	    		<select name="loc" id="loc">
+				    <option value="San Jose">San Jose</option>
+				    <option value="Seattle">Seattle</option>
+				    <option value="Boston">Boston</option>
+				</select>
+        </label>
+			</p>
+			<p>
+				<label for = "lang">Favorite language:
+  	    		<select name="lang">
+  				    <option value="python">Python</option>
+  				    <option value="C++">C++</option>
+  				    <option value="Java">Java</option>
+  				</select>
+        </label>
+			</p>
+    		<p>
+				<label for = "commnet"> Comment (Optional):
+        		<textarea name="comment" id ="comment" rows="10" cols="40"></textarea>
+            </label>
+    		</p>
+    		<input type="submit" value="Submit">
+
+    </form>
+  </div>
+
+
+</body>
+</html>
