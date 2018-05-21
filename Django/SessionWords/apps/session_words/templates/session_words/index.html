@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration form</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'session_words/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+
+  <div id="wrapper">
+    <div id="left">
+    <form method="post" action="/session_words/add_words">
+      {% csrf_token %}
+      <h2>Add a new word</h2>
+      <p>
+        <input type="text" name="word" id="word" value=""/>
+      </p>
+        <p>
+          <h3> Choose color:</h3>
+          <p>
+            <input type="radio" name="color" id="red" value="red"/>
+              <label for="red">Red</label>
+          </p>
+          <p>
+
+            <input type="radio" name="color" id="green" value="green"/>
+            <label for="Green">Green</label>
+          </p>
+          <p>
+
+            <input type="radio" name="color" id="blue" value="blue"/>
+            <label for="Blue">Blue</label>
+          </p>
+
+        </p>
+        <p>
+          <input type="checkbox" name="big" id="big" value="big"/>
+          <label for="big">Show in BIG Fonts!</label></p>
+        <p>
+          <input type="submit" name="submit" value="Add to session"/>
+        </p>
+    </form>
+
+  </div>
+
+    <div id="right">
+
+      <form method="post" action="/session_words/clear">
+        {% csrf_token %}
+        <input type="submit" name="submit" value="Clear Session"/>
+      </form>
+    
+        {% for data in request.session.words %}
+  	   <p>
+         <span class='{{data.color}} {{data.font}}'>{{data.word}}</span><span class='time'> - added on {{data.time}}</span>
+       </p>
+  	    {% endfor %}
+
+
+    </div>
+  </div>
+</body>
+</html>

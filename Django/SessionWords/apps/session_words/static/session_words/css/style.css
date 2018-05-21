@@ -1,0 +1,46 @@
+*{
+  margin: 0px;
+  padding:10px;
+}
+
+#wrapper{
+  width: 850px;
+  height:500px;
+  border: 1px solid black;
+
+}
+
+#left{
+  display: inline-block;
+  border-right: 2px solid black;
+  width: 400px;
+  height:400px;
+  vertical-align: top;
+}
+
+#right{
+  display: inline-block;
+  width: 400px;
+  height:400px;
+}
+
+.blue{
+  color: blue;
+}
+.red{
+  color:red;
+}
+.green{
+  color: green;
+}
+.large{
+  font-size:40px;
+  font-weight: bold;
+}
+.small{
+  font-size: 22px;
+
+}
+.tim{
+  font-size: 16px;
+}
