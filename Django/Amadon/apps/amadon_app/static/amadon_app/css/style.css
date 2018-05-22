@@ -1,0 +1,33 @@
+*{
+  margin:0px;
+  padding: 0px;
+}
+
+#wrapper{
+  width:800px;
+  height:700px;
+  padding: 15px;
+  margin: 0 auto;
+
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}
+
+td, th {
+    border-right: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+input{
+  width:80px;
+  height: 50px;
+}
