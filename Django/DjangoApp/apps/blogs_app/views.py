@@ -9,7 +9,7 @@ def new(request):
     return HttpResponse(response)
 
 def create(request):
-    return redirect('/')
+    return redirect('/blogs')
 
 def show(request,number):
     response = "placeholder to display blog number "+number
@@ -20,4 +20,4 @@ def edit(request,number):
     return HttpResponse(response)
 
 def destroy(request,number):
-    return redirect('/')
+    return redirect('/blogs')
