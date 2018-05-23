@@ -1,0 +1,150 @@
+
+(Django1.10) C:\Users\harik\Desktop\DojoAssignments\Python\python_stack\Django\DjangoApp\apps>cd ..
+
+(Django1.10) C:\Users\harik\Desktop\DojoAssignments\Python\python_stack\Django\DjangoApp>python manage.py makemigrations
+Migrations for 'book_authors':
+  apps\book_authors\migrations\0001_initial.py:
+    - Create model Author
+    - Create model Book
+    - Add field books to author
+
+(Django1.10) C:\Users\harik\Desktop\DojoAssignments\Python\python_stack\Django\DjangoApp>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, book_authors, contenttypes, dojo_ninjas, sessions, user_login
+Running migrations:
+  Rendering model states... DONE
+  Applying book_authors.0001_initial... OK
+
+(Django1.10) C:\Users\harik\Desktop\DojoAssignments\Python\python_stack\Django\DjangoApp>python manage.py shell
+Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:53:40) [MSC v.1500 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from apps.book_authors.models import *
+>>> Book.objects.first().authors
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'NoneType' object has no attribute 'authors'
+>>> Author.objects.first().books
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'NoneType' object has no attribute 'books'
+>>> cls
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'cls' is not defined
+>>> Book.objects.create(name="C sharp",desc="Book for learning c#")
+<Book: Book object>
+>>> Book.objects.create(name="Java",desc="Book for learning Jave SE")
+<Book: Book object>
+>>> Book.objects.create(name="Python",desc="Book for learning Python Django")
+<Book: Book object>
+>>> Book.objects.create(name="Ruby",desc="Book for learning Ruby")
+<Book: Book object>
+>>> Book.objects.create(name="PHP",desc="Book for learning PHP")
+<Book: Book object>
+>>> Author.objects.create(first_name="Mike",last_name="Hanigan",email="mike@gmail.com")
+<Author: Author object>
+>>> Author.objects.create(first_name="Speros",last_name="Shanigan",email="speros@gmail.com")
+<Author: Author object>
+>>> Author.objects.create(first_name="John",last_name="Flan",email="johnf@gmail.com")
+<Author: Author object>
+>>> Author.objects.create(first_name="Jadee",last_name="Roast",email="jd@gmail.com")
+<Author: Author object>
+>>> Author.objects.create(first_name="Jay",last_name="Singh",email="jay@gmail.com")
+<Author: Author object>
+>>> python manage.py makemigrations
+  File "<console>", line 1
+    python manage.py makemigrations
+                ^
+SyntaxError: invalid syntax
+>>>
+^C
+(Django1.10) C:\Users\harik\Desktop\DojoAssignments\Python\python_stack\Django\DjangoApp>python manage.py makemigrations
+You are trying to add a non-nullable field 'notes' to author without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> "Default Note"
+Migrations for 'book_authors':
+  apps\book_authors\migrations\0002_author_notes.py:
+    - Add field notes to author
+
+(Django1.10) C:\Users\harik\Desktop\DojoAssignments\Python\python_stack\Django\DjangoApp>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, book_authors, contenttypes, dojo_ninjas, sessions, user_login
+Running migrations:
+  Rendering model states... DONE
+  Applying book_authors.0002_author_notes... OK
+
+(Django1.10) C:\Users\harik\Desktop\DojoAssignments\Python\python_stack\Django\DjangoApp>python manage.py shell
+Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:53:40) [MSC v.1500 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+
+>>> from apps.book_authors.models import *
+>>> first_book = Book.objects.get(id=1)
+>>> fifth_book = Book.objects.get(id=5)
+>>> fifth_book.name="C#"
+>>> fifth_book.save()
+>>> fifth_author = Author.objects.get(id=5)
+>>> fifth_author.first_name="Ketul"
+>>> fifth_author.save()
+>>> first_author = Author.objects.get(id=1)
+>>> first_book = Book.objects.get(id=1)
+>>> second_book = Book.objects.get(id=2)
+>>> first_author.books.add(first_book)
+>>> first_author.books.add(second_book)
+>>> author2 = Author.objects.get(id=2)
+>>> book3 = Book.objects.get(id=3)
+>>> author2.books.add(first_book)
+>>> author2.books.add(second_book)
+>>> author2.books.add(book3)
+>>> author3 = Author.objects.get(id=3)
+>>> book4 = Book.objects.get(id=4)
+>>> author3.books.add(first_book)
+>>> author3.books.add(second_book)
+>>> author3.books.add(book3)
+>>> author3.books.add(book4)
+>>> author4 = Author.objects.get(id=4)
+>>> book5 = Book.objects.get(id=5)
+>>> author4.books.add(first_book)
+>>> author4.books.add(second_book)
+>>> author4.books.add(book3)
+>>> author4.books.add(book4)
+>>> author4.books.add(book5)
+>>> book3.Authors.all()
+<QuerySet [<Author: Author object>, <Author: Author object>, <Author: Author object>]>
+>>> book3.Authors.all().values()
+<QuerySet [{'first_name': u'Speros', 'last_name': u'Shanigan', 'created_at': datetime.datetime(2018, 5, 23, 16, 53, 15, 696000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 5, 23, 16, 53, 15, 696000, tzinfo=<UTC>), 'email': u'speros@gmail.com', 'notes': u'Default Note', u'id': 2}, {'first_name': u'John', 'last_name': u'Flan', 'created_at': datetime.datetime(2018, 5, 23, 16, 53, 40, 946000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 5, 23, 16, 53, 40, 946000, tzinfo=<UTC>), 'email': u'johnf@gmail.com', 'notes': u'Default Note', u'id': 3}, {'first_name': u'Jadee', 'last_name': u'Roast', 'created_at': datetime.datetime(2018, 5, 23, 16, 54, 16, 11000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 5, 23, 16, 54, 16, 11000, tzinfo=<UTC>), 'email': u'jd@gmail.com', 'notes': u'Default Note', u'id': 4}]>
+
+>>> book3 = Book.objects.get(id=3)
+>>> book3.Authors
+<django.db.models.fields.related_descriptors.ManyRelatedManager object at 0x00000000062AA358>
+
+>>> book3.Authors.first()
+<Author: Author object>
+>>> book3.Authors.first().value()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Author' object has no attribute 'value'
+>>> book3.Authors.first().first_name
+u'Speros'
+>>> book3.Authors.first().delete()
+(4, {u'book_authors.Author': 1, u'book_authors.Author_books': 3})
+>>> book3.Authors.first()
+<Author: Author object>
+>>> book3.Authors.first().first_name
+u'John'
+>>> book2 = Book.objects.get(id=2)
+>>> author5 = Author.objects.get(id=5)
+>>> author5.books.add(book2)
+
+>>> author3.books.all()
+<QuerySet [<Book: Book object>, <Book: Book object>, <Book: Book object>, <Book: Book object>]>
+>>> author3.books.all().values()
+<QuerySet [{'updated_at': datetime.datetime(2018, 5, 23, 16, 49, 7, 562000, tzinfo=<UTC>), 'created_at': datetime.datetime(2018, 5, 23, 16, 49, 7, 562000, tzinfo=<UTC>), 'desc': u'Book for learning c#', u'id': 1, 'name': u'C sharp'}, {'updated_at': datetime.datetime(2018, 5, 23, 16, 49, 29, 188000, tzinfo=<UTC>), 'created_at': datetime.datetime(2018, 5, 23, 16, 49, 29, 188000, tzinfo=<UTC>), 'desc': u'Book for learning Jave SE', u'id': 2, 'name': u'Java'}, {'updated_at': datetime.datetime(2018, 5, 23, 16, 49, 46, 84000, tzinfo=<UTC>), 'created_at': datetime.datetime(2018, 5, 23, 16, 49, 46, 84000, tzinfo=<UTC>), 'desc': u'Book for learning Python Django', u'id': 3, 'name': u'Python'}, {'updated_at': datetime.datetime(2018, 5, 23, 16, 49, 58, 671000, tzinfo=<UTC>), 'created_at': datetime.datetime(2018, 5, 23, 16, 49, 58, 671000, tzinfo=<UTC>), 'desc': u'Book for learning Ruby', u'id': 4, 'name': u'Ruby'}]>
+>>>
